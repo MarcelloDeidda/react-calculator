@@ -27,7 +27,10 @@ const App = () => {
     if (operators.includes(value)) {
       if (value === "." && numbers[numbers.length - 1].includes(".")) {
         return;
-      } else if (operators.includes(expression.slice(-1))) {
+      } else if (operators.includes(expression.slice(-1)) && operators.includes(expression.slice(-2, -1))) {
+        setExpression(expression.slice(0, -2) + value);
+        return;
+      } else if (operators.includes(expression.slice(-1)) && value !== "-") {
         setExpression(expression.slice(0, -1) + value);
         return;
       }
