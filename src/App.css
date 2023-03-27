@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Red Hat Mono";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#App {
+    min-height: 100vh;
+    background-color: #162A50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+    appearance: none;
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 200ms;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button:hover {
+    opacity: 0.8;
 }
 
-.App-link {
-  color: #61dafb;
+#calculator {
+    width: 100%;
+    max-width: 400px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px #BBD1EA;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#display {
+    text-align: right;
+    padding: 14px;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.operators {
+    display: flex;
+}
+
+.operators button {
+    background-color: #507DBC;
+    flex-grow: 1;
+    color: white;
+}
+
+.digits {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.digits button{
+    background-color: #A1C6EA;
+    width: 33.33%;
+}
+
+.last-line {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.last-line button{
+    background-color: #A1C6EA;
+    width: 33.333%;
 }
