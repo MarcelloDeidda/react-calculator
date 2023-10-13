@@ -31,7 +31,7 @@ const App = () => {
       } else if (operators.includes(expression.slice(-1)) && operators.includes(expression.slice(-2, -1))) {
         setExpression(expression.slice(0, -2) + value);
         return;
-      } else if (operators.includes(expression.slice(-1))/* && value !== "-"*/) {
+      } else if ((operators.includes(expression.slice(-1)) && value !== "-") || (["-", "."].includes(expression.slice(-1)) && value === "-")) { //!!!
         setExpression(expression.slice(0, -1) + value);
         return;
       }
