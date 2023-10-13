@@ -11,6 +11,7 @@ const App = () => {
       buttons.push(
         <button
           id={numberToWords.toWords(i)}
+          data-cy={i}
           key={numberToWords.toWords(i)}
           onClick={() => updateExpression(i.toString())}>
           {i}
@@ -30,7 +31,7 @@ const App = () => {
       } else if (operators.includes(expression.slice(-1)) && operators.includes(expression.slice(-2, -1))) {
         setExpression(expression.slice(0, -2) + value);
         return;
-      } else if (operators.includes(expression.slice(-1)) && value !== "-") {
+      } else if (operators.includes(expression.slice(-1))/* && value !== "-"*/) {
         setExpression(expression.slice(0, -1) + value);
         return;
       }
@@ -68,22 +69,22 @@ const App = () => {
 
   return <div id="App">
     <div id="calculator">
-      <div id="display">{expression}</div>
+      <div id="display" data-cy="display">{expression}</div>
       <div class="operators">
-        <button id="clear" onClick={clearExpression}>AC</button>
-        <button id="clearOne" onClick={clearOne}>C</button>
-        <button id="divide" onClick={() => updateExpression("/")}>/</button>
-        <button id="multiply" onClick={() => updateExpression("*")}>*</button>
-        <button id="subtract" onClick={() => updateExpression("-")}>-</button>
-        <button id="add" onClick={() => updateExpression("+")}>+</button>
+        <button id="clear" data-cy="clear" onClick={clearExpression}>AC</button>
+        <button id="clearOne" data-cy="clearOne" onClick={clearOne}>C</button>
+        <button id="divide" data-cy="divide" onClick={() => updateExpression("/")}>/</button>
+        <button id="multiply" data-cy="multiply" onClick={() => updateExpression("*")}>*</button>
+        <button id="subtract" data-cy="subtract" onClick={() => updateExpression("-")}>-</button>
+        <button id="add" data-cy="add" onClick={() => updateExpression("+")}>+</button>
       </div>
       <div class="digits">
         {digits()}
       </div>
       <div class="last-line">
-        <button id="zero" onClick={() => updateExpression("0")}>0</button>
-        <button id="decimal" onClick={() => updateExpression(".")}>.</button>
-        <button id="equals" onClick={calculateResult}>=</button>
+        <button id="zero" data-cy="0" onClick={() => updateExpression("0")}>0</button>
+        <button id="decimal" data-cy="decimal" onClick={() => updateExpression(".")}>.</button>
+        <button id="equals" data-cy="equals" onClick={calculateResult}>=</button>
       </div>
     </div>
   </div>
